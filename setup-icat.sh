@@ -1,6 +1,7 @@
 #!/bin/bash
 
 configdir=$GLASSFISH_HOME/etc/icat
+applist=$configdir/APPS
 
 die() {
     echo "$1"
@@ -9,12 +10,14 @@ die() {
 
 test -d $configdir || \
     die "Config directory $configdir not found"
+test -f $applist || \
+    die "Application file $applist not found"
 
-for app in `ls $configdir`; do
+for app in `cat $applist`; do
     appconfig=$configdir/$app
     appdir=$GLASSFISH_HOME/apps/$app
     test -d $appconfig || \
-	continue
+	die "Application configuration $appconfig not found"
     test -d $appdir || \
 	die "Application directory $appdir not found"
     cp -p $appconfig/* $appdir || \
