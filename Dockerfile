@@ -2,9 +2,8 @@ FROM rkrahl/glassfish
 
 USER root
 
-RUN mkdir -p /srv/ids/storage/{data,archive,cache} && \
-    chown -R glassfish:glassfish /srv/ids/storage && \
-    chmod 0700 /srv/ids/storage/{data,archive,cache}
+RUN mkdir -p /srv/ids/storage && \
+    chown -R glassfish:glassfish /srv/ids/storage
 
 USER glassfish
 
