@@ -2,6 +2,11 @@
 
 configdir=$GLASSFISH_HOME/etc/icat
 applist=$configdir/APPS
+if test -x $configdir/filter.sh; then
+    filter=$configdir/filter.sh
+else
+    filter="cp -p"
+fi
 
 die() {
     echo "$1"
@@ -20,8 +25,12 @@ for app in `cat $applist`; do
 	die "Application configuration $appconfig not found"
     test -d $appdir || \
 	die "Application directory $appdir not found"
-    cp -p $appconfig/* $appdir || \
-	die "Error copying application config for $app"
+    for src in $appconfig/*; do
+	dest=$appdir/`basename $src`
+	$filter $src $dest || \
+	    die "Error copying application config for $app"
+	chmod --reference=$src $dest
+    done
     echo "Install $app"
     ( cd $appdir && ./setup install )
 done
