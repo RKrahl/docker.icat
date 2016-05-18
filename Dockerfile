@@ -27,3 +27,6 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
     chmod -R 0700 /var/lib/glassfish/icat
 
 COPY setup-icat.sh /etc/glassfish.d
+
+# Work around Issue icatproject/icat.server#151
+COPY segments* /var/lib/glassfish/icat/lucene/
