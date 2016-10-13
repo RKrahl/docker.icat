@@ -35,7 +35,8 @@ for app in `cat $applist`; do
 	    die "Error copying application config for $app"
 	chmod --reference=$src $dest
     done
-    echo "Install $app"
+    echo "Install $app ..."
     ( cd $appdir && ./setup install )
+    echo "Install $app ... done"
 done
 
