@@ -2,7 +2,6 @@
 
 configdir=$GLASSFISH_HOME/etc/icat
 applist=$configdir/APPS
-storagedir=/srv/ids/storage
 if test -x $configdir/filter.sh; then
     filter=$configdir/filter.sh
 else
@@ -13,9 +12,6 @@ die() {
     echo "$1"
     exit 1
 }
-
-mkdir -p $storagedir/{data,archive,cache}
-chmod 0700 $storagedir/{data,archive,cache}
 
 test -d $configdir || \
     die "Config directory $configdir not found"
