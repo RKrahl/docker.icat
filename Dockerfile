@@ -15,7 +15,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/authn.ldap/1.2.1-SNAPSHOT/authn.ldap-1.2.1-20170315.154118-1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/authn.simple/1.2.0-SNAPSHOT/authn.simple-1.2.0-20170315.154833-1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.server/4.9.0-SNAPSHOT/icat.server-4.9.0-20170315.162136-3-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.0.0-SNAPSHOT/icat.lucene-1.0.0-20170315.160747-2-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.0.0-SNAPSHOT/icat.lucene-1.0.0-20170315.160747-2-distro.zip; \
     do \
 	curl --silent --show-error --location --output $tmpfile $dist && \
 	unzip -q -d $GLASSFISH_HOME/apps $tmpfile; \
