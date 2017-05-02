@@ -1,5 +1,8 @@
 #!/bin/bash
 
+mkdir -p $DOMAIN_DATA/icat $DOMAIN_DATA/lucene
+chmod o-rwx $DOMAIN_DATA/icat $DOMAIN_DATA/lucene
+
 configdir=$GLASSFISH_HOME/etc/icat
 applist=$configdir/APPS
 if test -x $configdir/filter.sh; then
