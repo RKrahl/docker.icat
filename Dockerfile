@@ -24,7 +24,6 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
     done && \
     rm -rf $tmpfile && \
     chmod -R go-w $GLASSFISH_HOME/apps && \
-    mkdir -p $GLASSFISH_HOME/etc/icat /var/lib/glassfish/icat/lucene && \
-    chmod -R 0700 /var/lib/glassfish/icat
+    mkdir -p $GLASSFISH_HOME/etc/icat
 
 COPY setup-icat.sh /etc/glassfish.d
