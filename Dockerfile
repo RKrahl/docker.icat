@@ -29,4 +29,4 @@ COPY setup-icat.sh /etc/glassfish.d
 
 # Work around Issue icatproject/icat.server#151
 RUN mkdir -p $GLASSFISH_HOME/tmp
-COPY segments* $GLASSFISH_HOME/tmp
+COPY segments* $GLASSFISH_HOME/tmp/
