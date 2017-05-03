@@ -28,4 +28,5 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 COPY setup-icat.sh /etc/glassfish.d
 
 # Work around Issue icatproject/icat.server#151
-COPY segments* /var/lib/glassfish/icat/lucene/
+RUN mkdir -p $GLASSFISH_HOME/tmp
+COPY segments* $GLASSFISH_HOME/tmp
