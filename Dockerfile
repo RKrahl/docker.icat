@@ -22,11 +22,6 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
     done && \
     rm -rf $tmpfile && \
     chmod -R go-w $GLASSFISH_HOME/apps && \
-    chmod a+x $GLASSFISH_HOME/apps/*/setup && \
     mkdir -p $GLASSFISH_HOME/etc/icat
 
 COPY setup-icat.sh /etc/glassfish.d
-
-# Work around Issue icatproject/icat.server#151
-RUN mkdir -p $GLASSFISH_HOME/tmp
-COPY segments* $GLASSFISH_HOME/tmp/
