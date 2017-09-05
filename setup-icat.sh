@@ -28,12 +28,14 @@ for app in `cat $applist`; do
 	die "Application configuration $appconfig not found"
     test -d $appdir || \
 	die "Application directory $appdir not found"
-    for src in $appconfig/*; do
-	dest=$appdir/`basename $src`
-	$filter $src $dest || \
-	    die "Error copying application config for $app"
-	chmod --reference=$src $dest
-    done
+    (cd $appconfig
+	for src in `find -type f`; do
+	    mkdir -p $appdir/`dirname $src`
+	    dest=$appdir/$src
+	    $filter $src $dest || \
+		die "Error copying application config for $app"
+	    chmod --reference=$src $dest
+	done)
     echo "Install $app ..."
     ( cd $appdir && ./setup install )
     echo "Install $app ... done"
