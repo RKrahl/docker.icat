@@ -2,8 +2,13 @@ FROM rkrahl/glassfish:payara-4.1
 
 USER root
 
-RUN mkdir -p /srv/ids/storage && \
-    chown -R glassfish:glassfish /srv/ids/storage
+RUN mkdir -p /srv/ids/storage/data \
+             /srv/ids/storage/archive \
+             /srv/ids/storage/cache && \
+    chown -R glassfish:glassfish /srv/ids/storage && \
+    chmod 0700 /srv/ids/storage/data \
+               /srv/ids/storage/archive \
+               /srv/ids/storage/cache
 
 USER glassfish
 
