@@ -1,18 +1,21 @@
 #!/bin/bash
 
+CONFIGDIR=$GLASSFISH_HOME/etc/icat
+export CONFIGDIR
+
 mkdir -p \
-    $DOMAIN_DATA/icat \
-    $DOMAIN_DATA/ids \
-    $DOMAIN_DATA/lucene
-chmod o-rwx $DOMAIN_DATA/icat $DOMAIN_DATA/lucene
+    $DOMAINDIR/data/icat \
+    $DOMAINDIR/data/icat/lucene \
+    $DOMAINDIR/data/ids \
+    $DOMAINDIR/data/lucene
+chmod o-rwx $DOMAINDIR/data/icat $DOMAINDIR/data/lucene
 
 # Work around Issue icatproject/icat.server#151
 mv $GLASSFISH_HOME/tmp/segments* $DOMAIN_DATA/lucene
 
-configdir=$GLASSFISH_HOME/etc/icat
-applist=$configdir/APPS
-if test -x $configdir/filter.sh; then
-    filter=$configdir/filter.sh
+applist=$CONFIGDIR/APPS
+if test -x $CONFIGDIR/filter.sh; then
+    filter=$CONFIGDIR/filter.sh
 else
     filter="cp -p"
 fi
@@ -22,13 +25,13 @@ die() {
     exit 1
 }
 
-test -d $configdir || \
-    die "Config directory $configdir not found"
+test -d $CONFIGDIR || \
+    die "Config directory $CONFIGDIR not found"
 test -f $applist || \
     die "Application file $applist not found"
 
 for app in `cat $applist`; do
-    appconfig=$configdir/$app
+    appconfig=$CONFIGDIR/$app
     appdir=$GLASSFISH_HOME/apps/$app
     test -d $appconfig || \
 	die "Application configuration $appconfig not found"
