@@ -11,7 +11,7 @@ mkdir -p \
 chmod o-rwx $DOMAINDIR/data/icat $DOMAINDIR/data/lucene
 
 # Work around Issue icatproject/icat.server#151
-mv $GLASSFISH_HOME/tmp/segments* $DOMAIN_DATA/lucene
+mv $GLASSFISH_HOME/tmp/segments* $DOMAINDIR/data/lucene
 
 applist=$CONFIGDIR/APPS
 if test -x $CONFIGDIR/filter.sh; then
