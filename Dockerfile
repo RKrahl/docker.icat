@@ -2,7 +2,9 @@ FROM rkrahl/glassfish:4.0
 
 USER root
 
-RUN mkdir -p /srv/ids/storage/data \
+RUN zypper --non-interactive install \
+	python-base && \
+    mkdir -p /srv/ids/storage/data \
              /srv/ids/storage/archive \
              /srv/ids/storage/cache && \
     chown -R glassfish:glassfish /srv/ids/storage && \
