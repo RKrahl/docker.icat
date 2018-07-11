@@ -33,4 +33,4 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
     chmod -R go-w $GLASSFISH_HOME/apps && \
     mkdir -p $GLASSFISH_HOME/etc/icat
 
-COPY setup-icat.sh /etc/glassfish.d/10-setup-icat.sh
+COPY setup-icat.sh /etc/glassfish/post-install.d/10-setup-icat.sh
