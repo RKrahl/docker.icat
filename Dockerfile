@@ -3,7 +3,7 @@ FROM rkrahl/glassfish:4.0
 USER root
 
 RUN zypper --non-interactive install \
-	python-base \
+	python \
 	python-xml && \
     mkdir -p /srv/ids/storage/data \
              /srv/ids/storage/archive \
