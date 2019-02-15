@@ -1,4 +1,4 @@
-FROM rkrahl/glassfish:4.0
+FROM rkrahl/glassfish:glassfish-4.0
 
 USER root
 
