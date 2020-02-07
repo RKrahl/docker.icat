@@ -11,7 +11,8 @@ RUN zypper --non-interactive install \
     chown -R glassfish:glassfish /srv/ids/storage && \
     chmod 0700 /srv/ids/storage/data \
                /srv/ids/storage/archive \
-               /srv/ids/storage/cache
+               /srv/ids/storage/cache && \
+    ln -sf ../usr/share/zoneinfo/Europe/Berlin /etc/localtime
 
 USER glassfish
 
