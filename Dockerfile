@@ -30,8 +30,8 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.11.0/ids.server-1.11.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.7/topcat-2.4.7-distro.zip; \
     do \
-	curl --silent --show-error --location --output $tmpfile $dist && \
-	unzip -q -d $GLASSFISH_HOME/apps $tmpfile; \
+	(curl --silent --show-error --location --output $tmpfile $dist && \
+	 unzip -q -d $GLASSFISH_HOME/apps $tmpfile) || exit 1; \
     done && \
     rm -rf $tmpfile && \
     chmod -R go-w $GLASSFISH_HOME/apps && \
