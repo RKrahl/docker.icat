@@ -35,6 +35,12 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
     done && \
     rm -rf $tmpfile && \
     chmod -R go-w $GLASSFISH_HOME/apps && \
+    find $GLASSFISH_HOME/apps -type f | xargs chmod a-x && \
+    for f in $GLASSFISH_HOME/apps/*/setup; \
+    do \
+	(mv $f $f.dos && tr -d '\r' < $f.dos > $f && rm $f.dos &&
+	 chmod a+x $f) || exit 1; \
+    done && \
     mkdir -p $GLASSFISH_HOME/etc/icat
 
 COPY setup-icat.sh /etc/glassfish/post-install.d/10-setup-icat.sh
