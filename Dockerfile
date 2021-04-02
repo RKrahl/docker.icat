@@ -23,7 +23,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/authn.db/2.0.0/authn.db-2.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/authn.ldap/2.0.0/authn.ldap-2.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/authn.simple/2.0.0/authn.simple-2.0.0-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/icat.server/4.11.0/icat.server-4.11.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/icat.server/4.11.1/icat.server-4.11.1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.1.0/icat.lucene-1.1.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/1.1.1/icat.oaipmh-1.1.1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.2/ids.storage_file-1.4.2-distro.zip \
@@ -36,11 +36,11 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
     rm -rf $tmpfile && \
     chmod -R go-w $GLASSFISH_HOME/apps && \
     find $GLASSFISH_HOME/apps -type f | xargs chmod a-x && \
-    for f in $GLASSFISH_HOME/apps/*/setup; \
-    do \
-	(mv $f $f.dos && tr -d '\r' < $f.dos > $f && rm $f.dos && \
-	 chmod a+x $f) || exit 1; \
-    done && \
+    chmod a+x \
+	$GLASSFISH_HOME/apps/*/setup \
+	$GLASSFISH_HOME/apps/icat.server/icatadmin \
+	$GLASSFISH_HOME/apps/icat.server/testicat \
+	$GLASSFISH_HOME/apps/topcat/topcat_admin && \
     mkdir -p $GLASSFISH_HOME/etc/icat
 
 COPY setup-icat.sh /etc/glassfish/post-install.d/10-setup-icat.sh
