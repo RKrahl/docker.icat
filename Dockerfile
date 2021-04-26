@@ -1,4 +1,4 @@
-FROM rkrahl/glassfish:payara-4.1
+FROM rkrahl/glassfish:payara-5
 
 USER root
 
