@@ -23,11 +23,12 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/authn.db/2.0.0/authn.db-2.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/authn.ldap/2.0.0/authn.ldap-2.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/authn.simple/2.0.0/authn.simple-2.0.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/authn.oidc/1.0.0/authn.oidc-1.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.server/4.11.1/icat.server-4.11.1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.1.0/icat.lucene-1.1.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/1.1.1/icat.oaipmh-1.1.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.2/ids.storage_file-1.4.2-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.11.0/ids.server-1.11.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.3/ids.storage_file-1.4.3-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.12.0/ids.server-1.12.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.8/topcat-2.4.8-distro.zip; \
     do \
 	(curl --silent --show-error --location --output $tmpfile $dist && \
