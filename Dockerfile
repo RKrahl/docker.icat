@@ -29,7 +29,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/1.1.1/icat.oaipmh-1.1.1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.3/ids.storage_file-1.4.3-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.12.0/ids.server-1.12.0-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.8/topcat-2.4.8-distro.zip; \
+	https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.9/topcat-2.4.9-distro.zip; \
     do \
 	(curl --silent --show-error --location --output $tmpfile $dist && \
 	 unzip -q -d $GLASSFISH_HOME/apps $tmpfile) || exit 1; \
