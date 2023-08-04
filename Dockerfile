@@ -1,4 +1,4 @@
-FROM rkrahl/glassfish:payara-5
+FROM rkrahl/glassfish:payara-6
 
 USER root
 
@@ -16,12 +16,12 @@ USER glassfish
 RUN mkdir -p $GLASSFISH_HOME/apps && \
     tmpfile=`mktemp` && \
     for dist in \
-	https://repo.icatproject.org/repo/org/icatproject/authn.anon/2.0.1/authn.anon-2.0.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/authn.db/2.0.1/authn.db-2.0.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/authn.ldap/2.0.1/authn.ldap-2.0.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/authn.simple/2.0.1/authn.simple-2.0.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/icat.server/5.0.1/icat.server-5.0.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.1.2/icat.lucene-1.1.2-distro.zip; \
+	https://repo.icatproject.org/repo/org/icatproject/authn.anon/3.0.0/authn.anon-3.0.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/authn.db/3.0.0/authn.db-3.0.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/authn.ldap/3.0.0/authn.ldap-3.0.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/authn.simple/3.0.0/authn.simple-3.0.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/icat.server/6.0.0/icat.server-6.0.0-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/2.0.2/icat.lucene-2.0.2-distro.zip; \
     do \
 	(curl --silent --show-error --location --output $tmpfile $dist && \
 	 unzip -q -d $GLASSFISH_HOME/apps $tmpfile) || exit 1; \
