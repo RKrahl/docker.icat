@@ -2,10 +2,7 @@ FROM rkrahl/glassfish:payara-5
 
 USER root
 
-RUN zypper --non-interactive install \
-	python \
-	python-xml && \
-    mkdir -p /srv/ids/storage/data \
+RUN mkdir -p /srv/ids/storage/data \
              /srv/ids/storage/archive \
              /srv/ids/storage/cache && \
     chown -R glassfish:glassfish /srv/ids/storage && \
@@ -28,8 +25,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.1.2/icat.lucene-1.1.2-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/1.1.2/icat.oaipmh-1.1.2-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.3/ids.storage_file-1.4.3-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.12.1/ids.server-1.12.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.9/topcat-2.4.9-distro.zip; \
+	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.12.1/ids.server-1.12.1-distro.zip; \
     do \
 	(curl --silent --show-error --location --output $tmpfile $dist && \
 	 unzip -q -d $GLASSFISH_HOME/apps $tmpfile) || exit 1; \
@@ -40,8 +36,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
     chmod a+x \
 	$GLASSFISH_HOME/apps/*/setup \
 	$GLASSFISH_HOME/apps/icat.server/icatadmin \
-	$GLASSFISH_HOME/apps/icat.server/testicat \
-	$GLASSFISH_HOME/apps/topcat/topcat_admin && \
+	$GLASSFISH_HOME/apps/icat.server/testicat && \
     mkdir -p $GLASSFISH_HOME/etc/icat
 
 COPY setup-icat.sh /etc/glassfish/post-install.d/10-setup-icat.sh
