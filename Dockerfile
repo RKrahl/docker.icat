@@ -23,7 +23,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/authn.oidc/2.0.0/authn.oidc-2.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.server/6.0.0/icat.server-6.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/2.0.2/icat.lucene-2.0.2-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/2.0.0-SNAPSHOT/icat.oaipmh-2.0.0-20230815.150227-3-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/2.0.0/icat.oaipmh-2.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.4/ids.storage_file-1.4.4-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.server/2.0.0-SNAPSHOT/ids.server-2.0.0-20230817.131903-5-distro.zip; \
     do \
