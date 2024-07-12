@@ -28,7 +28,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/1.1.2/icat.lucene-1.1.2-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/1.1.2/icat.oaipmh-1.1.2-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.4/ids.storage_file-1.4.4-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.12.1/ids.server-1.12.1-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/ids.server/1.12.2/ids.server-1.12.2-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/topcat/2.4.9/topcat-2.4.9-distro.zip; \
     do \
 	(curl --silent --show-error --location --output $tmpfile $dist && \
