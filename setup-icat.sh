@@ -4,11 +4,10 @@ CONFIGDIR=$GLASSFISH_HOME/etc/icat
 export CONFIGDIR
 
 mkdir -p \
-    $DOMAINDIR/data/icat \
-    $DOMAINDIR/data/icat/lucene \
+    $DOMAINDIR/data/icat/search \
     $DOMAINDIR/data/ids \
-    $DOMAINDIR/data/lucene
-chmod o-rwx $DOMAINDIR/data/icat $DOMAINDIR/data/lucene
+    $DOMAINDIR/data/search
+chmod o-rwx $DOMAINDIR/data/icat $DOMAINDIR/data/search
 
 applist=$CONFIGDIR/APPS
 if test -x $CONFIGDIR/filter.sh; then
