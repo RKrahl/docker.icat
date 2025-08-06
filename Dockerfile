@@ -21,7 +21,7 @@ RUN mkdir -p $GLASSFISH_HOME/apps && \
 	https://repo.icatproject.org/repo/org/icatproject/authn.ldap/3.0.0/authn.ldap-3.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/authn.simple/3.0.0/authn.simple-3.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/authn.oidc/2.0.1/authn.oidc-2.0.1-distro.zip \
-	https://repo.icatproject.org/repo/org/icatproject/icat.server/6.1.1/icat.server-6.1.1-distro.zip \
+	https://repo.icatproject.org/repo/org/icatproject/icat.server/6.2.0-SNAPSHOT/icat.server-6.2.0-20250806.142101-1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.lucene/3.0.0/icat.lucene-3.0.0-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/icat.oaipmh/2.0.1/icat.oaipmh-2.0.1-distro.zip \
 	https://repo.icatproject.org/repo/org/icatproject/ids.storage_file/1.4.4/ids.storage_file-1.4.4-distro.zip \
