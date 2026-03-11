@@ -4,8 +4,9 @@ USER root
 
 RUN mkdir -p /srv/ids/storage/data \
              /srv/ids/storage/archive \
-             /srv/ids/storage/cache && \
-    chown -R glassfish:glassfish /srv/ids/storage && \
+             /srv/ids/storage/cache \
+             /var/log/glassfish && \
+    chown -R glassfish:glassfish /srv/ids/storage /var/log/glassfish && \
     chmod 0700 /srv/ids/storage/data \
                /srv/ids/storage/archive \
                /srv/ids/storage/cache && \

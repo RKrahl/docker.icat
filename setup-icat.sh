@@ -15,6 +15,8 @@ if test -x $CONFIGDIR/filter.sh; then
 else
     filter="cp -p"
 fi
+install_log=/var/log/glassfish/icat-install.log
+touch $install_log
 
 die() {
     echo "$1"
@@ -42,7 +44,9 @@ for app in `cat $applist`; do
 	    chmod --reference=$src $dest
 	done)
     echo "Install $app ..."
-    ( cd $appdir && ./setup install )
+    ( cd $appdir && ./setup install && \
+	  echo "$app: installed successfully." >> $install_log ) || \
+	echo "$app: install failed." >> $install_log
     echo "Install $app ... done"
 done
 
